@@ -1,10 +1,17 @@
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import Home from './Component/Home';
+import Kakaomap from './Component/KakaoMap';
 
-function App() {
+const App = () => {
+
   return (
-    <div >
-      <h1>여행지</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/map/:id' element={<Kakaomap />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
-export default App;
+export default App; 
