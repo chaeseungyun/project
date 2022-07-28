@@ -1,16 +1,22 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import GetGalleryList from './module/GetGalleryList';
 import Home from './Component/Home';
 import Kakaomap from './Component/KakaoMap';
+import  NavBar  from './Navbar';
+
 
 const App = () => {
-
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home />}></Route>
-        <Route path='/map/:id' element={<Kakaomap />}></Route>
-      </Routes>
-    </BrowserRouter>
+    <div>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<GetGalleryList />}></Route>
+          <Route path='/map/:id' element={<Kakaomap />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
+
   );
 }
 

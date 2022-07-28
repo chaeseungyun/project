@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from './Button';
 
 const { kakao } = window;
 
@@ -19,7 +20,7 @@ const KakaoMap = () => {
                 height: '500px'
             }}>
             </div>
-            <Link to='/'>to Home</Link>
+            <Link to='/'><Button>to Home</Button></Link>
         </div>
 
     );
