@@ -1,15 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { NavBox } from './Component/styled'
 
 function NavBar() {
   return (
-
-    <div style={{position: 'fixed', top: '0px', backgroundColor: 'tomato', }}>
-        gd
-    </div>
+    <NavBox>Navbar</NavBox>
   );
 }
+
 
 
 

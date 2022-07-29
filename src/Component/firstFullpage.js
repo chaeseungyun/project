@@ -1,16 +1,13 @@
 import React from "react";
-import { Button } from "./Button";
+import { Button } from "./styled";
 import { Link } from "react-router-dom";
+import GetGalleryList from "../module/GetGalleryList";
 
 const FirstFullPage = ({ fullpageApi }) => {
     return (
-        <>
-        <p>Section 1 (welcome to fullpage.js)</p>
-            <Link to='/map/123'>go to map</Link>
-            <Button onClick={() => fullpageApi.moveSectionDown()}>
-              Click me to move down
-            </Button>
-        </>
+        <div>
+            <GetGalleryList />
+        </div>
     )
 }
 

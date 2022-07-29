@@ -8,3 +8,10 @@ export const Button = styled.button`
     cursor: pointer;
     margin-top: 3px;
     `
+export const NavBox = styled.div`
+display:flex;
+align-items: center;
+justify-content: center;
+height: 80px;
+background-color: tomato;
+`

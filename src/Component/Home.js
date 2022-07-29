@@ -1,12 +1,34 @@
 import React from 'react';
-import Fullpage from './totalFullpage';
+import ReactFullpage from '@fullpage/react-fullpage';
+import FirstFullPage from './firstFullpage';
+import SecondFullpage from './SecondFullpage';
+import ThirdFullpage from './ThirdFullpage';
 
-const Home = () => {
-    return (
-        <div>
-            <Fullpage />
-        </div>
+const Home = () => (
+  <ReactFullpage
+    //fullpage options
+    licenseKey={null}
+    scrollingSpeed={1000} /* Options here */
+    navigation={true}
+    navigationPosition={'right'}
+    slidesNavigation={true}
+    
+    render={({ fullpageApi }) => {
+      return (
+        <ReactFullpage.Wrapper>
+          <div className="section">
+            <FirstFullPage fullpageApi={fullpageApi} />
+          </div>
+          <div className="section">
+            <SecondFullpage fullpageApi={fullpageApi} />
+          </div>
+          <div className="section">
+            <ThirdFullpage fullpageApi={fullpageApi} />
+          </div>
+        </ReactFullpage.Wrapper>
+      );
+    }}
+  />
+);
 
-    )
-}
 export default Home;
