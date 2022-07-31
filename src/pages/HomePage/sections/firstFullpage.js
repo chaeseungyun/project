@@ -1,8 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./firstFullPage.css";
 
 const FirstFullPage = ({ fullpageApi, item }) => {
+  const navigate = useNavigate();
+  const toDetailPage = () => {
+    navigate("/map/" + item.galContentId, {
+      state: {
+        title: item.galTitle,
+      },
+    });
+  };
   return (
     <>
       {!item ? (
@@ -16,9 +24,10 @@ const FirstFullPage = ({ fullpageApi, item }) => {
             backgroundSize: "cover",
           }}
         >
-          <Link to={"/map/" + item.galContentId}>
-            <span className="place-name">{item.galTitle}</span>
-          </Link>
+          <span onClick={() => toDetailPage()} className="place-name">
+            {item.galTitle}
+          </span>
+
           <button onClick={() => fullpageApi.moveSectionDown()}></button>
         </div>
       )}
