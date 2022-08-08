@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Map, MapMarker } from "react-kakao-maps-sdk";
+import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import { useLocation, useNavigate } from "react-router-dom";
 const { kakao } = window;
 
@@ -45,14 +45,21 @@ const KakaoMap = () => {
   }, [map]);
 
   return (
-    <>
+    <div style={
+      {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        height: '100vh'
+      }
+    }>
       <Map // 로드뷰를 표시할 Container
         center={{
           lat: 37.566826,
           lng: 126.9786567,
         }}
         style={{
-          width: "100%",
+          width: "70%",
           height: "350px",
         }}
         level={3}
@@ -71,7 +78,7 @@ const KakaoMap = () => {
         ))}
       </Map>
       <button onClick={toPreviousPage}>다른 관광지</button>
-    </>
+    </div>
   );
 };
 
