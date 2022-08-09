@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./FullPage.css";
 
-const FirstFullPage = ({ fullpageApi, item }) => {
+const FullPage = ({ fullpageApi, item }) => {
   const navigate = useNavigate();
   const toDetailPage = () => {
     navigate("/map/" + item.contentid, {
@@ -38,4 +38,4 @@ const FirstFullPage = ({ fullpageApi, item }) => {
   );
 };
 
-export default FirstFullPage;
+export default FullPage;
