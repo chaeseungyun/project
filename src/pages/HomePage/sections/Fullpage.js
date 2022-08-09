@@ -1,13 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./firstFullPage.css";
+import "./FullPage.css";
 
 const FirstFullPage = ({ fullpageApi, item }) => {
   const navigate = useNavigate();
   const toDetailPage = () => {
-    navigate("/map/" + item.galContentId, {
+    navigate("/map/" + item.contentid, {
       state: {
-        title: item.galTitle,
+        title: item.title,
+        overview: item.overview,
+        mapx: item.mapx,
+        mapy: item.mapy,
       },
     });
   };
@@ -17,15 +20,15 @@ const FirstFullPage = ({ fullpageApi, item }) => {
         <h1>Loding...</h1>
       ) : (
         <div
-          id="putGallary"
+          id="putImage"
           style={{
-            backgroundImage: `url(${item.galWebImageUrl})`,
+            backgroundImage: `url(${item.firstimage})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
           }}
         >
           <span onClick={() => toDetailPage()} className="place-name">
-            {item.galTitle}
+            {item.title}
           </span>
 
           <button onClick={() => fullpageApi.moveSectionDown()}></button>

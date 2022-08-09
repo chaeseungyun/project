@@ -1,84 +1,68 @@
 import React, { useState, useEffect } from "react";
-import { Map, MapMarker } from 'react-kakao-maps-sdk';
-import { useLocation, useNavigate } from "react-router-dom";
+import { Map, MapMarker, MapInfoWindow } from "react-kakao-maps-sdk";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 const { kakao } = window;
 
 const KakaoMap = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const title = location.state.title;
-  const [info, setInfo] = useState();
-  const [markers, setMarkers] = useState([]);
-  const [map, setMap] = useState();
-  const toPreviousPage = () => {
-    navigate(-1);
-  };
-  useEffect(() => {
-    if (!map) return;
-    const ps = new kakao.maps.services.Places();
-
-    ps.keywordSearch(`${title}`, (data, status, _pagination) => {
-      if (status === kakao.maps.services.Status.OK) {
-        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-        // LatLngBounds 객체에 좌표를 추가합니다
-        const bounds = new kakao.maps.LatLngBounds();
-        let markers = [];
-
-        for (var i = 0; i < data.length; i++) {
-          // @ts-ignore
-          markers.push({
-            position: {
-              lat: data[i].y,
-              lng: data[i].x,
-            },
-            content: data[i].place_name,
-          });
-          // @ts-ignore
-          bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-        }
-        setMarkers(markers);
-
-        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-        map.setBounds(bounds);
-      }
-    });
-  }, [map]);
+  const overview = location.state.overview;
+  const mapx = location.state.mapx;
+  const mapy = location.state.mapy;
+  console.log(mapx, mapy);
+  const [state, setState] = useState({
+    // 지도의 초기 위치
+    center: { lat: mapy, lng: mapx },
+    // 지도 위치 변경시 panto를 이용할지에 대해서 정의
+    isPanto: false,
+  });
 
   return (
-    <div style={
-      {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        height: '100vh'
-      }
-    }>
-      <Map // 로드뷰를 표시할 Container
-        center={{
-          lat: 37.566826,
-          lng: 126.9786567,
-        }}
+    <>
+      <Map // 지도를 표시할 Container
+        center={state.center}
+        isPanto={state.isPanto}
         style={{
-          width: "70%",
-          height: "350px",
+          // 지도의 크기
+          width: "100%",
+          height: "450px",
         }}
-        level={3}
-        onCreate={setMap}
+        level={3} // 지도의 확대 레벨
       >
-        {markers.map((marker) => (
-          <MapMarker
-            key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
-            position={marker.position}
-            onClick={() => setInfo(marker)}
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+          }}
+        >
+          <button
+            onClick={() =>
+              setState({
+                center: { lat: 33.45058, lng: 126.574942 },
+                isPanto: true,
+              })
+            }
           >
-            {info && info.content === marker.content && (
-              <div style={{ color: "#000" }}>{marker.content}</div>
-            )}
-          </MapMarker>
-        ))}
+            지도 중심좌표 부드럽게 이동시키기
+          </button>
+          <MapInfoWindow // 인포윈도우를 생성하고 지도에 표시합니다
+            position={{
+              // 인포윈도우가 표시될 위치입니다
+              lat: mapy,
+              lng: mapx,
+            }}
+            removable={true} // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+          >
+            {/* 인포윈도우에 표출될 내용으로 HTML 문자열이나 React Component가 가능합니다 */}
+            <div style={{ padding: "5px", color: "#000" }}>{title}</div>
+          </MapInfoWindow>
+          <Link to="/">
+            <button>to Home</button>
+          </Link>
+        </div>
       </Map>
-      <button onClick={toPreviousPage}>다른 관광지</button>
-    </div>
+    </>
   );
 };
 

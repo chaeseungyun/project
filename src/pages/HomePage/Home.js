@@ -1,14 +1,14 @@
 import React from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
-import FirstFullPage from "./sections/firstFullpage";
+import FirstFullPage from "./sections/Fullpage";
 import NavBar from "../../components/NavBar/NavBar";
-import useGalleryList from "../../hooks/useGalleryList";
+import useDetailCommon from "../../hooks/useDetailCommon";
 const Home = () => {
-  const imgSrc = useGalleryList();
-  console.log(imgSrc);
+  const imageAndTitle = useDetailCommon();
+  console.log(imageAndTitle);
   return (
     <>
-      {imgSrc && (
+      {imageAndTitle && (
         <ReactFullpage
           //fullpage options
           licenseKey={null}
@@ -20,8 +20,8 @@ const Home = () => {
           render={({ fullpageApi }) => {
             return (
               <ReactFullpage.Wrapper>
-                {imgSrc.map((item) => (
-                  <div className="section" key={item.galContentId}>
+                {imageAndTitle.map((item) => (
+                  <div className="section" key={item.contentid}>
                     <NavBar />
                     <FirstFullPage fullpageApi={fullpageApi} item={item} />
                   </div>

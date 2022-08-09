@@ -4,7 +4,6 @@ import useDetailCommon from "./hooks/useDetailCommon.js";
 
 const TestCase = () => {
   const item = useDetailCommon();
-  console.log(item);
   return (
     <div>
       {!item ? (
@@ -12,9 +11,10 @@ const TestCase = () => {
       ) : (
         <div>
           {item.map((item)=> (
-            <div key={item.contentId}>
-              <img src={item?.firstimage} alt="image"/>
-              <p>{item?.overview}</p>
+            <div key={item.contentid}>
+              <h1>{item.title}</h1>
+              <img src={item.firstimage} alt="image" style={{width: '70%', height: '100vh'}}/>
+              <p>{item.overview}</p>
             </div>
           ))}
         </div>

@@ -1,11 +1,11 @@
-#putGallary {
+#putImage {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   height: 90vh;
 }
 
-#putGallary a {
+#putImage a {
   text-decoration: none;
 }
 
