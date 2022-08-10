@@ -1,30 +1,13 @@
 import KakaoMap from "../../components/KakaoMap";
-import ReactFullpage from "@fullpage/react-fullpage";
-
+import "./Explain.css"
 const Explain = () => {
   return (
-    <div>
-      <ReactFullpage
-        //fullpage options
-        licenseKey={null}
-        scrollingSpeed={1000} /* Options here */
-        navigation={true}
-        navigationPosition={"right"}
-        slidesNavigation={true}
-        loopBottom={true}
-        render={({ fullpageApi }) => {
-          return (
-            <ReactFullpage.Wrapper>
-              <div className="section">
-                <KakaoMap />
-              </div>
-              <div className="section">
-                <h1>hi</h1>
-              </div>
-            </ReactFullpage.Wrapper>
-          );
-        }}
-      />
+    <div className="container">
+      <div className="make-space"></div>
+      <div>
+        <KakaoMap />
+      </div>
+      <div className="make-space"></div>
     </div>
   );
 };

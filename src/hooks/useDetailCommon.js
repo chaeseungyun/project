@@ -22,7 +22,7 @@ const useDetailCommon = () => {
         i--;
       }
     } // 0~7의 숫자 중 중복없이 3개의 숫자를 randomIndex에 저장
-    let url = `https://apis.data.go.kr/B551011/KorService/detailCommon?serviceKey=rdYSyhAxSxgM7723QGu5S%2B678lsmU6p9SqU1UpL9CzNHQeZdBnFQTEjIHAJAxcx7kNQYmO8LBMB0IuTA7sHidg%3D%3D&MobileOS=ETC&MobileApp=App&overviewYN=Y&firstImageYN=Y&_type=json&defaultYN=Y&mapinfoYN=Y`; /*URL*/
+    let url = `https://apis.data.go.kr/B551011/KorService/detailCommon?serviceKey=rdYSyhAxSxgM7723QGu5S%2B678lsmU6p9SqU1UpL9CzNHQeZdBnFQTEjIHAJAxcx7kNQYmO8LBMB0IuTA7sHidg%3D%3D&MobileOS=ETC&MobileApp=App&overviewYN=Y&firstImageYN=Y&_type=json&defaultYN=Y&mapinfoYN=Y&addrinfoYN=Y`; /*URL*/
     let firstQueryParams =
       "&" + encodeURIComponent("contentId") + "=" + encodeURIComponent(contentId[randomIndex[0]]);
     let secondQueryParams =
