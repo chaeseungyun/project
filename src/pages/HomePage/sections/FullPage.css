@@ -25,6 +25,10 @@
   font-weight: bold;
   cursor: pointer;
 }
+span:hover {
+  background-color: #FFE65A;
+  transition: background-color .3s;
+}
 
 #putGallary button {
   width: 100px;

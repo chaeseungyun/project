@@ -8,7 +8,7 @@ const Home = () => {
   console.log(imageAndTitle);
   return (
     <>
-      {imageAndTitle && (
+      {!imageAndTitle ? <h1>Loading...</h1> : (
         <ReactFullpage
           //fullpage options
           licenseKey={null}

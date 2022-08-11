@@ -11,6 +11,7 @@ const FullPage = ({ fullpageApi, item }) => {
         overview: item.overview,
         mapx: item.mapx,
         mapy: item.mapy,
+        homepage: item.homepage,
       },
     });
   };

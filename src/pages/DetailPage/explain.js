@@ -1,4 +1,4 @@
-import KakaoMap from "../../components/KakaoMap";
+import KakaoMap from "./section/KakaoMap";
 import "./Explain.css"
 const Explain = () => {
   return (

@@ -1,6 +1,5 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Home from "./pages/HomePage/Home";
-import Kakaomap from "./components/KakaoMap";
 import Explain from "./pages/DetailPage/Explain";
 
 const App = () => {
