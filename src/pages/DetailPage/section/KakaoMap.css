@@ -2,8 +2,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
+}
+.mid-title {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    height: 100%;
+    height: 12vh;
+    padding: 0;
+}
+.mid-title a {
+    text-decoration: none;
+    color: black;
+    border-radius: 1.2em;
+    border: 1px;
+    padding: 30px;
+    background-color: white;
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+.mid-title a:hover {
+    color: white;
+    background-color: black;
+    transition: background-color .4s;
 }
 
 .overview-style {
@@ -15,41 +37,8 @@
     color: #8B4513
 }
 
-.mid-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 4vh;
-    margin-bottom: 4vh;
-    border-radius: 30px;
-}
-
-.mid-title:hover {
-    background-color: black;
-    color: white !important;
-    transition: background-color .5s;
-}
-
-.mid-title a {
-    text-decoration: none;
-    color: black;
-    width: 400px;
-    height: 60px;
-    background-color: white;
-    text-align: center;
-    padding-top: 30px;
-    font-size: 20px;
-    border-radius: 30px;
-}
-
-a:hover {
-    background-color: black;
-    color: white;
-    transition:  background-color .4s;
-}
-
 #home-button {
     position: absolute;
-    left: 9vw;
+    left: 5vw;
     top: 2vh;
 }

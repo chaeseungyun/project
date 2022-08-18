@@ -25,7 +25,9 @@ const KakaoMap = () => {
     console.log(result);
     setHomepageHref(result);
   };
-  useEffect(() => {getHref()}, []);
+  useEffect(() => {
+    getHref();
+  }, []);
   const [state, setState] = useState({
     // 지도의 초기 위치
     center: { lat: mapy, lng: mapx },
@@ -37,11 +39,13 @@ const KakaoMap = () => {
     <div>
       <div className="map-overview">
         <div className="mid-title">
-            <a href={homepageHref} target='_blank' className='a-style'>{title}</a>
+          <a href={homepageHref} target="_blank">
+            {title}
+          </a>
         </div>
         <Link to="/">
-            <Button id="home-button">to Home</Button>
-          </Link>
+          <Button id="home-button">to Home</Button>
+        </Link>
         <Map // 지도를 표시할 Container
           center={state.center}
           isPanto={state.isPanto}
@@ -49,6 +53,7 @@ const KakaoMap = () => {
             // 지도의 크기
             width: "100%",
             height: "450px",
+            marginTop: "5vh",
           }}
           level={3} // 지도의 확대 레벨
           onCenterChanged={
@@ -62,23 +67,16 @@ const KakaoMap = () => {
               }) // 현재 위치의 중심 좌표 입력
           }
         >
-          <div
-            style={{
-              display: "flex",
-              gap: "10px",
-            }}
+          <Button
+            onClick={() =>
+              setState({
+                center: { lat: mapy, lng: mapx },
+                isPanto: true,
+              })
+            } // 클릭 시 초기 중심 좌표로 다시 설정
           >
-            <Button
-              onClick={() =>
-                setState({
-                  center: { lat: mapy, lng: mapx },
-                  isPanto: true,
-                })
-              } // 클릭 시 초기 중심 좌표로 다시 설정
-            >
-              되돌리기
-            </Button>
-          </div>
+            되돌리기
+          </Button>
           <MapMarker // 인포윈도우를 생성하고 지도에 표시합니다
             position={{
               // 인포윈도우가 표시될 위치입니다
