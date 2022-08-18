@@ -22,7 +22,7 @@ const KakaoMap = () => {
   const getHref = async () => {
     let parsed = await Parser(homepage);
     let result = await parsed.props?.href;
-    console.log(parsed);
+    console.log(result);
     setHomepageHref(result);
   };
   useEffect(() => {getHref()}, []);
@@ -39,6 +39,9 @@ const KakaoMap = () => {
         <div className="mid-title">
             <a href={homepageHref} target='_blank' className='a-style'>{title}</a>
         </div>
+        <Link to="/">
+            <Button id="home-button">to Home</Button>
+          </Link>
         <Map // 지도를 표시할 Container
           center={state.center}
           isPanto={state.isPanto}
@@ -106,9 +109,6 @@ const KakaoMap = () => {
           </MapMarker>
           <ZoomControl position={kakao.maps.ControlPosition.TOPRIGHT} />
           <MapTypeControl position={kakao.maps.ControlPosition.TOPRIGHT} />
-          <Link to="/">
-            <Button>to Home</Button>
-          </Link>
         </Map>
         <div className="overview-style">
           {overview.replace(/(<([^>]+)>)/gi, "")}

@@ -48,3 +48,8 @@ a:hover {
     transition:  background-color .4s;
 }
 
+#home-button {
+    position: absolute;
+    left: 9vw;
+    top: 2vh;
+}

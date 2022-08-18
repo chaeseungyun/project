@@ -5,7 +5,7 @@ const useDetailCommon = () => {
   let randomIndex = []; // 랜덤으로 중복없는 3개의 인덱스를 가질 배열
   const detailCommon = async () => {
     const searchFestival = await fetch(
-      `https://apis.data.go.kr/B551011/KorService/searchFestival?MobileOS=ETC&MobileApp=AppTest&serviceKey=rdYSyhAxSxgM7723QGu5S%2B678lsmU6p9SqU1UpL9CzNHQeZdBnFQTEjIHAJAxcx7kNQYmO8LBMB0IuTA7sHidg%3D%3D&_type=json&eventStartDate=20220820&eventEndDate=20220830`
+      `https://apis.data.go.kr/B551011/KorService/searchFestival?MobileOS=ETC&MobileApp=App&serviceKey=rdYSyhAxSxgM7723QGu5S%2B678lsmU6p9SqU1UpL9CzNHQeZdBnFQTEjIHAJAxcx7kNQYmO8LBMB0IuTA7sHidg%3D%3D&_type=json&eventStartDate=20220820&eventEndDate=20220830`
     ); // 행사정보의 contentId를 가져오기 위함
     const convertTojson = await searchFestival.json();
     const getSearched = await convertTojson.response.body.items.item;
